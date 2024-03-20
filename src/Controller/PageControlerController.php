@@ -15,4 +15,12 @@ class PageControlerController extends AbstractController
             'controller_name' => 'PageControlerController',
         ]);
     }
+    
+    #[Route('/about', name: 'app_about')]
+    public function about(): Response
+    {
+        return $this->render('page_controler/about.html.twig', [
+            'controller_name' => 'PageControlerController',
+        ]);
+    }
 }
