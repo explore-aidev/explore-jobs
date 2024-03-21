@@ -4,11 +4,32 @@
 
 {% block body %}
 
-<div class="row text-center">
-    {% for job in jobs %}
-        {% include "partials/_job_show.html.twig" %}
-    {% endfor %}
-</div>
+
+
+<div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">All Jobs</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+
+        {% for job in jobs %}
+        
+            <div class="feature col">
+                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+                </div>
+                <h3 class="fs-2 text-body-emphasis">{{ job.title }}</h3>
+                <p>{{ job.description|raw }}</p>
+                <a href="{{ path('app_job_show', {'id': job.id}) }}" class="icon-link">
+                More details
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+                </a>
+            </div>
+        {% endfor %}
+
+      
+    </div>
+  </div>
+
 
 
 
