@@ -15,7 +15,8 @@ class CompanyCrudController extends AbstractCrudController
         return Company::class;
     }
 
-    /*
+    
+     /*
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -25,4 +26,5 @@ class CompanyCrudController extends AbstractCrudController
         ];
     }
     */
+
 }
