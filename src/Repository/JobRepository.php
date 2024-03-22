@@ -21,9 +21,27 @@ class JobRepository extends ServiceEntityRepository
         parent::__construct($registry, Job::class);
     }
 
-    //    /**
-    //     * @return Job[] Returns an array of Job objects
-    //     */
+    public function findByCategory(string $category)
+    {
+        return $this->createQueryBuilder('j')
+            ->innerJoin('j.category', 'c')
+            ->andWhere('c.id = :category')
+            ->setParameter('category', $category)
+            ->getQuery()
+            ->getResult();
+    }
+    public function findByCompany(string $company)
+    {
+        return $this->createQueryBuilder('j')
+            ->innerJoin('j.company', 'c')
+            ->andWhere('c.id = :company')
+            ->setParameter('company', $company)
+            ->getQuery()
+            ->getResult();
+    }
+    
+
+
     //    public function findByExampleField($value): array
     //    {
     //        return $this->createQueryBuilder('j')
